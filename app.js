@@ -5,15 +5,22 @@ const express = require("express");
 
 const app = express();
 const ExpressError = require("./expressError")
-const companyRouters = require('./routes/companies')
-const invoiceRouter = require('./routes/invoices')
+
 
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
+
+const companyRouters = require('./routes/companies')
+const invoiceRouter = require('./routes/invoices')
+const industriesRouter = require('./routes/industries')
+
+
 app.use('/companies', companyRouters)
 app.use('/invoices', invoiceRouter)
+app.use('/industries', industriesRouter)
+
 
 
 
